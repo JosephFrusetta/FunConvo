@@ -14,11 +14,11 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
       model="text-davinci-002",
       prompt=prompt_text,
       temperature=1,
-      max_tokens=100,
+      max_tokens=200,
       top_p=1,
       best_of=3,
-      frequency_penalty=0.04,
-      presence_penalty=0.6,
+      frequency_penalty=2,
+      presence_penalty=1.7,
       stop=[" Human:", " AI:"]
     )
     conversation = response['choices'][0]['text']
