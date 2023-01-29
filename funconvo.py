@@ -11,14 +11,14 @@ session_prompt = "The following is a conversation with an AI that helps humans c
 def ask(question, chat_log=None): #Interfacing with the OpenAI API
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
-      prompt=prompt_text,
       model="text-davinci-003",
+      prompt=prompt_text,
       temperature=0.99,
       max_tokens=200,
       top_p=1,
+      best_of=20,
       frequency_penalty=2,
       presence_penalty=1.7,
-      best_of=20,
       stop=[" Human:", " AI:"]
     )
     conversation = response['choices'][0]['text']
