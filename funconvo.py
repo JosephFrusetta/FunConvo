@@ -19,7 +19,7 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
       frequency_penalty=2,
       presence_penalty=1.7,
       best_of=20,
-      stop=["\n", " Human:", " AI:"]
+      stop=[" Human:", " AI:"]
     )
     conversation = prompt_text + response['choices'][0]['text']
     return str(conversation)
