@@ -7,7 +7,6 @@ app.config['SECRET_KEY'] = 'q3cfe1ed8fae309f222'
 
 @app.route('/funconvo', methods=['POST']) #Twilio code that allows chatlogs to be sent via SMS and passed to OpenAI's API
 def tinder():
-    chat_log.clear()
     incoming_msg = request.values['Body']
     chat_log = session.get('chat_log')
     answer = ask(incoming_msg, chat_log)
