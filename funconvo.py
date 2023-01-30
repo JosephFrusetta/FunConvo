@@ -9,6 +9,8 @@ completion = openai.Completion()
 session_prompt = "test"
 
 def ask(question, chat_log=None): #Interfacing with the OpenAI API
+    if chat_log is None:
+        chat_log = session_prompt
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
       model="text-davinci-003",
