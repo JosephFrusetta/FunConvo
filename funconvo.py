@@ -27,6 +27,4 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
     return str(conversation)
 
 def append_interaction_to_chat_log(question, answer, chat_log=None): #Twilio code that appends a question and response to the chat log.
-    if chat_log is None:
-        chat_log = session_prompt
     return f'{chat_log}{restart_sequence} {question}{start_sequence}{answer}'
