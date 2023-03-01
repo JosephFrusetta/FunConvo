@@ -13,7 +13,7 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
         chat_log = session_prompt
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
     response = openai.Completion.create(
-        model="text-davinci-003",
+        model="davinci",
         prompt=prompt_text,
         temperature=0.99,
         max_tokens=200,
@@ -22,9 +22,9 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
         frequency_penalty=2,
         presence_penalty=1.7,
         stop=[" Human:", " AI:"]
-        )
-        conversation = response['choices'][0]['text']
-        return str(conversation)
+    )
+    conversation = response['choices'][0]['text']
+    return str(conversation)
 
 def append_interaction_to_chat_log(question, answer, chat_log=None): #Twilio code that appends a question and response to the chat log.
     return f'{chat_log}{restart_sequence} {question}{start_sequence}{answer}'
