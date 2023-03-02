@@ -12,9 +12,9 @@ def ask(question, chat_log=None): #Interfacing with the OpenAI API
     if chat_log is None:
         chat_log = session_prompt
     prompt_text = f'{chat_log}{restart_sequence}: {question}{start_sequence}:'
-    response = openai.ChatCompletion.create(
-      model="gpt-3.5-turbo",
-      messages=prompt_text,
+    response = openai.Completion.create(
+      model="text-davinci-003",
+      prompt=prompt_text,
       temperature=0.99,
       max_tokens=200,
       top_p=1,
